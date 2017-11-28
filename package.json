@@ -44,6 +44,7 @@
     "prepublishOnly": "yarn run build; cp ./declarations/moment-range.js.flow ./dist",
     "preversion": "yarn run flow && yarn run lint && yarn run test",
     "test": "karma start ./karma.conf.js",
+    "test:mocha": "mocha-webpack --webpack-config webpack.config.js \"lib/**/*_test.js\"",
     "version": "yarn run build; cp ./declarations/moment-range.js.flow ./dist"
   },
   "devDependencies": {
@@ -68,6 +69,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "mocha": "^2.5.3",
+    "mocha-webpack": "^1.0.1",
     "moment": "^2.17.1",
     "webpack": "^2.2.1"
   },
