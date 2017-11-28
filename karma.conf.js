@@ -15,7 +15,7 @@ module.exports = function(config) {
       terminal: false
     },
 
-    browsers: ['PhantomJS', 'Chrome'],
+    browsers: ['PhantomJS', 'ChromeHeadless'],
 
     client: {
       mocha: {
