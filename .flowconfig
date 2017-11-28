@@ -2,9 +2,9 @@
 .*/node_modules/mocha-webpack/.*
 
 [include]
-declarations/
 
 [libs]
+./declarations/*.flow
 
 [options]
 esproposal.class_instance_fields=enable
