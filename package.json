@@ -50,7 +50,7 @@
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^8.0.2",
-    "babel-loader": "^6.2.8",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "babel-polyfill": "^6.16.0",
     "babel-preset-env": "^1.6.1",
