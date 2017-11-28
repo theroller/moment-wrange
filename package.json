@@ -41,7 +41,7 @@
     "doctoc": "doctoc README.md --github",
     "flow": "flow",
     "lint": "eslint ./lib/",
-    "prepublish": "yarn run build; cp ./declarations/moment-range.js.flow ./dist",
+    "prepublishOnly": "yarn run build; cp ./declarations/moment-range.js.flow ./dist",
     "preversion": "yarn run flow && yarn run lint && yarn run test",
     "test": "karma start ./karma.conf.js",
     "version": "yarn run build; cp ./declarations/moment-range.js.flow ./dist"
