@@ -7,8 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 4.0.0-rc.1
+### Changed
+
+* Dev Dependecy updates
+  * babel-eslint
+  * babel-loader
+  * babel-preset-es2015 => babel-preset-env
+  * eslint
+  * flow-bin
+  * mocha
+  * webpack
+* Linting cleanup
+* Test cleanup
+  * added mocha-webpack to all for non-browser based testing
+  * Chrome tests are now headless
+* API changes
+  * adjacent: accepts units
+  * add: accepts options object and defaults to allowing adjacent ranges
+  * contains: replaced options object with units and inclusivity arguments to better match moment.js' functionality. **This is a breaking change.**
+  * toString: accepts a format string to control output
+
 ## [3.0.3]
 ### Changed
+
 * 'module' has been replaced with 'jsnext:main' to support both rollup and webpack 2
 
 ## [3.0.2]
