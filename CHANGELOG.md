@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 4.0.0-rc.2
+
+* Added MIN_MOMENT property
+* Added MAX_MOMENT property
+* Added invertRanges method
+* Added mergeRanges method
+
 ## 4.0.0-rc.1
 ### Changed
 
