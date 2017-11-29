@@ -24,8 +24,8 @@
     "Victoria French <victoria.french@cinecove.com> (https://github.com/victoriafrench)",
     "Jochen Diekenbrock (https://github.com/JochenDiekenbrock)"
   ],
-  "homepage": "https://github.com/rotaready/moment-range",
-  "bugs": "https://github.com/rotaready/moment-range/issues",
+  "homepage": "https://github.com/theroller/moment-range",
+  "bugs": "https://github.com/theroller/moment-range/issues",
   "main": "./dist/moment-range",
   "jsnext:main": "lib/moment-range.js",
   "version": "4.0.0-rc.2",
@@ -78,7 +78,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git@github.com/rotaready/moment-range.git"
+    "url": "https://git@github.com/theroller/moment-range.git"
   },
   "license": "Unlicense",
   "dependencies": {
