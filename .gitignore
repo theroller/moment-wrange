@@ -1,5 +1,8 @@
+
+*.tgz
+
+.nyc_output/
+.vscode/
+coverage/
 dist/
-docs/
 node_modules/
-tags
-.idea

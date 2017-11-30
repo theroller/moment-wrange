@@ -1,8 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-// import moment from 'moment';
-// import Symbol from 'es6-symbol';
+const Symbol = require('es6-symbol');
 
 //-----------------------------------------------------------------------------
 // Constants
@@ -127,9 +126,7 @@ DateRange.prototype.byRange = function byRange(interval, options = { exclusive: 
 };
 
 DateRange.prototype.center = function center() {
-    const center = this.start.valueOf() + this.diff() / 2;
-
-    return moment(center);
+    return moment(this.start.valueOf() + this.diff() / 2);
 };
 
 DateRange.prototype.clone = function clone() {

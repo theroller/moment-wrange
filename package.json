@@ -1,8 +1,9 @@
 {
   "name": "moment-range",
   "description": "Fancy date ranges for Moment.js",
-  "author": "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
+  "author": "James Roller, Jr. <og.readmore@gmail.com> (https://github.com/theroller)",
   "contributors": [
+    "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
     "Adam Biggs (lightmaker.com)",
     "Mats Julian Olsen (https://github.com/mewwts)",
     "Matt Patterson <matt@reprocessed.org> (http://reprocessed.org/)",
@@ -26,62 +27,72 @@
   ],
   "homepage": "https://github.com/theroller/moment-range",
   "bugs": "https://github.com/theroller/moment-range/issues",
-  "main": "./dist/moment-range",
-  "jsnext:main": "lib/moment-range.js",
+  "main": "./src/moment-range",
+  "module": "./dist/moment-range",
+  "jsnext:main": "./dist/moment-range",
   "version": "4.0.0-rc.2",
   "engines": {
-    "node": "*"
+    "node": ">=6.x"
   },
   "files": [
     "dist/",
-    "lib/"
+    "src/"
   ],
   "scripts": {
     "build": "webpack",
+    "cover": "nyc mocha -c",
     "doctoc": "doctoc README.md --github",
-    "flow": "flow --color never --show-all-errors",
-    "lint": "eslint ./lib/",
-    "prepublishOnly": "yarn run build && cp ./declarations/moment-range.js.flow ./dist",
-    "preversion": "yarn run flow && yarn run lint && yarn run test",
-    "test": "karma start ./karma.conf.js",
-    "test:mocha": "mocha-webpack --webpack-config webpack.config.js \"lib/**/*_test.js\"",
-    "version": "yarn run build && cp ./declarations/moment-range.js.flow ./dist"
+    "lint": "eslint src test",
+    "precover": "npm run lint",
+    "prepublishOnly": "npm run build",
+    "preversion": "npm run cover && npm run test:browser",
+    "test": "mocha -c",
+    "test:browser": "karma start ./karma.conf.js",
+    "version": "npm run build"
+  },
+  "peerDependencies": {
+    "moment": ">= 2"
+  },
+  "dependencies": {
+    "es6-symbol": "^3.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "babel-polyfill": "^6.16.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^4.1.2",
     "doctoc": "^1.2.0",
     "eslint": "^4.12.0",
     "eslint-loader": "^1.6.1",
-    "expect.js": "^0.3.1",
-    "flow-bin": "^0.59.0",
     "karma": "^1.3.0",
     "karma-babel-polyfill": "0.0.5",
+    "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-expect": "^1.1.3",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "mocha": "^4.0.1",
-    "mocha-webpack": "^1.0.1",
     "moment": "^2.17.1",
+    "nyc": "^11.4.0",
     "webpack": "^3.8.1"
-  },
-  "peerDependencies": {
-    "moment": ">= 2"
   },
   "repository": {
     "type": "git",
     "url": "https://git@github.com/theroller/moment-range.git"
   },
-  "license": "Unlicense",
-  "dependencies": {
-    "es6-symbol": "^3.1.0"
-  }
+  "nyc": {
+    "cache": true,
+    "exclude": [
+      "test"
+    ],
+    "reporter": [
+      "clover",
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "license": "Unlicense"
 }
