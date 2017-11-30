@@ -31,7 +31,7 @@
   "module": "./dist/moment-range",
   "jsnext:main": "./dist/moment-range",
   "unpkg": "dist/moment-range.min.js",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.3",
   "engines": {
     "node": ">=6.x"
   },

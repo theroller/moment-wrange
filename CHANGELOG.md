@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 4.0.0-rc.3
+
+* Converted codebase to use ES5
+* MIN\_MOMENT & MAX\_MOMENT are now module level properties
+* Removed unused infrastructure
+    * flow
+    * yarn
+
 ## 4.0.0-rc.2
 
 * Added MIN_MOMENT property
