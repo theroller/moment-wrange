@@ -30,6 +30,7 @@
   "main": "./src/moment-range",
   "module": "./dist/moment-range",
   "jsnext:main": "./dist/moment-range",
+  "unpkg": "dist/moment-range.min.js",
   "version": "4.0.0-rc.2",
   "engines": {
     "node": ">=6.x"
@@ -43,8 +44,9 @@
     "cover": "nyc mocha -c",
     "doctoc": "doctoc README.md --github",
     "lint": "eslint src test",
+    "prebuild": "rm -rf dist",
     "precover": "npm run lint",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "preversion": "npm run cover && npm run test:browser",
     "test": "mocha -c",
     "test:browser": "karma start ./karma.conf.js",
@@ -77,6 +79,7 @@
     "mocha": "^4.0.1",
     "moment": "^2.17.1",
     "nyc": "^11.4.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.8.1"
   },
   "repository": {

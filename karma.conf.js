@@ -1,11 +1,6 @@
-const webpackConfig = require('./webpack.config.js');
+'use strict';
 
-delete webpackConfig.entry;
-delete webpackConfig.externals;
-delete webpackConfig.output;
-delete webpackConfig.plugins;
-
-webpackConfig.devtool = 'inline-source-map';
+const webpackConfig = require('./webpack.config.js').getConfig({ test: true });
 
 module.exports = function(config) {
     config.set({
