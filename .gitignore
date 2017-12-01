@@ -5,4 +5,5 @@
 .vscode/
 coverage/
 dist/
+junit/
 node_modules/

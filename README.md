@@ -1,8 +1,6 @@
-# moment-range [![CircleCI](https://circleci.com/gh/rotaready/moment-range.svg?style=shield)](https://circleci.com/gh/rotaready/moment-range)
+# moment-range [![CircleCI branch](https://img.shields.io/circleci/project/github/theroller/moment-range/roller.svg)](https://circleci.com/gh/theroller/moment-range)
 
 Fancy date ranges for [Moment.js][moment].
-
-> Hey there! After 5 months of inactivity, we're reviewing pull requests and issues to bring moment-range up to date. Get in touch with us [in this thread](https://github.com/rotaready/moment-range/issues/177) if you have any feedback.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -566,7 +564,7 @@ range.valueOf(); // 7945200000
 Clone this bad boy:
 
 ``` sh
-git clone https://git@github.com/rotaready/moment-range.git
+git clone https://git@github.com/theroller/moment-range.git
 ```
 
 Install the dependencies:

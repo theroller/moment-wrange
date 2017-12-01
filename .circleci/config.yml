@@ -1,0 +1,63 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+
+    docker:
+      - image: circleci/node:6-browsers
+        environment:
+          CHROME_BIN: /usr/bin/google-chrome
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: Install moment-range
+          command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Create test results directory
+          command: mkdir junit
+
+      - run:
+          name: eslint
+          command: npm run ci:lint
+          when: always
+
+      - run:
+          name: Mocha Tests
+          command: npm run ci:test
+          when: always
+
+      - run:
+          name: Karma Tests
+          command: npm run ci:test:browser
+          when: always
+
+      - run:
+          name: coverage
+          command: npm run cover
+
+      - store_test_results:
+          path: junit
+
+      - store_artifacts:
+          path: junit
+
+      - store_artifacts:
+          path: coverage
