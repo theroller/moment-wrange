@@ -10,12 +10,19 @@ module.exports = function(config) {
             terminal: false
         },
 
-        browsers: ['PhantomJS', 'ChromeHeadless'],
+        browsers: ['PhantomJS', 'ChromeHeadless', 'FirefoxHeadless'],
 
         client: {
             mocha: {
                 reporter: 'html'
             }
+        },
+
+        customLaunchers: {
+            FirefoxHeadless: {
+                base: 'Firefox',
+                flags: [ '-headless' ],
+            },
         },
 
         files: [
@@ -39,6 +46,7 @@ module.exports = function(config) {
         plugins: [
             'karma-babel-polyfill',
             'karma-chrome-launcher',
+            'karma-firefox-launcher',
             'karma-junit-reporter',
             'karma-mocha',
             'karma-phantomjs-launcher',
