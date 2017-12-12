@@ -410,7 +410,8 @@ function mergeRanges(ranges) {
     ranges
         .slice() // copy the ranges because we may have to sort them
         .sort((a, b) => a.start - b.start) // ranges must be in ascending order
-        .forEach((range, index) => {
+        .filter(x => !x.start.isSame(x.end)) // remove empty ranges
+        .forEach((range, index, array) => {
             if (typeof chunk === 'undefined' || chunk === null) {
                 chunk = range;
             }
@@ -425,7 +426,7 @@ function mergeRanges(ranges) {
             }
 
             // Handle the end of the timeline
-            if (index === ranges.length - 1) {
+            if (index === array.length - 1) {
                 chunks.push(chunk);
             }
         });
