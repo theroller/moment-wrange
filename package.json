@@ -27,7 +27,7 @@
   ],
   "homepage": "https://github.com/theroller/moment-range",
   "bugs": "https://github.com/theroller/moment-range/issues",
-  "main": "./src/moment-range",
+  "main": "./src",
   "module": "./dist/moment-range",
   "jsnext:main": "./dist/moment-range",
   "unpkg": "dist/moment-range.min.js",
