@@ -417,7 +417,7 @@ function mergeRanges(ranges) {
             }
             else {
                 if (range.overlaps(chunk, { adjacent: true })) {
-                    chunk = moment.range(moment.min(chunk.start, range.start), moment.max(chunk.end, range.end));
+                    chunk = new DateRange(moment.min(chunk.start, range.start), moment.max(chunk.end, range.end));
                 }
                 else {
                     chunks.push(chunk);
