@@ -23,6 +23,24 @@ describe('Moment', function() {
     const or = moment.range(null, '2011-05-05');
     const or2 = moment.range('2011-03-05', null);
 
+    describe('#isRange()', function() {
+        it('valid range => true', function() {
+            expect(moment.isRange(or)).to.be.true;
+        });
+
+        it('moment object => false', function() {
+            expect(moment.isRange(m1)).to.be.false;
+        });
+
+        it('empty object => false', function() {
+            expect(moment.isRange({})).to.be.false;
+        });
+
+        it('null => false', function() {
+            expect(moment.isRange(null)).to.be.false;
+        });
+    });
+
     describe('#range()', function() {
         it('should return a DateRange with start & end properties', function() {
             const dr = moment.range(m1, m2);

@@ -51,19 +51,40 @@ function DateRange(start, end) {
         throw new Error('start must preceed end');
 }
 
-DateRange.prototype.adjacent = function adjacent(other, units) {
-    return (this.intersect(other) === null) && this.start.isSame(other.end, units) || this.end.isSame(other.start, units);
-};
+DateRange.prototype.adjacent = adjacent;
+DateRange.prototype.add = add;
+DateRange.prototype.by = by;
+DateRange.prototype.byRange = byRange;
+DateRange.prototype.center = center;
+DateRange.prototype.clone = clone;
+DateRange.prototype.contains = contains;
+DateRange.prototype.diff = diff;
+DateRange.prototype.duration = duration;
+DateRange.prototype.intersect = intersect;
+DateRange.prototype.isEqual = isEqual;
+DateRange.prototype.isRange = isRange;
+DateRange.prototype.isSame = isSame;
+DateRange.prototype.overlaps = overlaps;
+DateRange.prototype.reverseBy = reverseBy;
+DateRange.prototype.reverseByRange= reverseByRange;
+DateRange.prototype.subtract = subtract;
+DateRange.prototype.toDate = toDate;
+DateRange.prototype.toString = toString;
+DateRange.prototype.valueOf = valueOf;
 
-DateRange.prototype.add = function add(other, options = { adjacent: true }) {
+function adjacent(other, units) {
+    return (this.intersect(other) === null) && this.start.isSame(other.end, units) || this.end.isSame(other.start, units);
+}
+
+function add(other, options = { adjacent: true }) {
     if (this.overlaps(other, options)) {
         return new this.constructor(moment.min(this.start, other.start), moment.max(this.end, other.end));
     }
 
     return null;
-};
+}
 
-DateRange.prototype.by = function by(interval, options = { exclusive: false, step: 1 }) {
+function by(interval, options = { exclusive: false, step: 1 }) {
     const range = this;
 
     return {
@@ -90,9 +111,9 @@ DateRange.prototype.by = function by(interval, options = { exclusive: false, ste
             };
         }
     };
-};
+}
 
-DateRange.prototype.byRange = function byRange(interval, options = { exclusive: false, step: 1 }) {
+function byRange(interval, options = { exclusive: false, step: 1 }) {
     const range = this;
     const step = options.step || 1;
     const diff = this.valueOf() / interval.valueOf() / step;
@@ -123,17 +144,17 @@ DateRange.prototype.byRange = function byRange(interval, options = { exclusive: 
             };
         }
     };
-};
+}
 
-DateRange.prototype.center = function center() {
+function center() {
     return moment(this.start.valueOf() + this.diff() / 2);
-};
+}
 
-DateRange.prototype.clone = function clone() {
+function clone() {
     return new this.constructor(this.start, this.end);
-};
+}
 
-DateRange.prototype.contains = function contains(other, units, inclusivity) {
+function contains(other, units, inclusivity) {
     // Default to inclusive
     inclusivity = inclusivity || '[]';
 
@@ -155,17 +176,17 @@ DateRange.prototype.contains = function contains(other, units, inclusivity) {
     const endInRange = (inclusivity[1] === ']') ? end >= oEnd : end > oEnd;
 
     return (startInRange && endInRange);
-};
+}
 
-DateRange.prototype.diff = function diff(unit, rounded) {
+function diff(unit, rounded) {
     return this.end.diff(this.start, unit, rounded);
-};
+}
 
-DateRange.prototype.duration = function duration(unit, rounded) {
+function duration(unit, rounded) {
     return this.diff(unit, rounded);
-};
+}
 
-DateRange.prototype.intersect = function intersect(other) {
+function intersect(other) {
     const { start, end } = valueOfRange(this);
     const { start: oStart, end: oEnd } = valueOfRange(other);
 
@@ -198,21 +219,25 @@ DateRange.prototype.intersect = function intersect(other) {
     }
 
     return null;
-};
+}
 
-DateRange.prototype.isEqual = function isEqual(other, units) {
+function isEqual(other, units) {
     return this.start.isSame(other.start, units) && this.end.isSame(other.end, units);
-};
+}
 
-DateRange.prototype.isSame = function isSame(other, units) {
+function isRange(obj) {
+    return obj instanceof DateRange;
+}
+
+function isSame(other, units) {
     return this.isEqual(other, units);
-};
+}
 
-DateRange.prototype.overlaps = function overlaps(other, options = { adjacent: false }) {
+function overlaps(other, options = { adjacent: false }) {
     return (options.adjacent && this.adjacent(other)) || (this.intersect(other) !== null);
-};
+}
 
-DateRange.prototype.reverseBy = function reverseBy(interval, options = { exclusive: false, step: 1 }) {
+function reverseBy(interval, options = { exclusive: false, step: 1 }) {
     const range = this;
 
     return {
@@ -239,9 +264,9 @@ DateRange.prototype.reverseBy = function reverseBy(interval, options = { exclusi
             };
         }
     };
-};
+}
 
-DateRange.prototype.reverseByRange= function reverseByRange(interval, options = { exclusive: false, step: 1 }) {
+function reverseByRange(interval, options = { exclusive: false, step: 1 }) {
     const range = this;
     const step = options.step || 1;
     const diff = this.valueOf() / interval.valueOf() / step;
@@ -272,9 +297,9 @@ DateRange.prototype.reverseByRange= function reverseByRange(interval, options = 
             };
         }
     };
-};
+}
 
-DateRange.prototype.subtract = function subtract(other) {
+function subtract(other) {
     const { start, end } = valueOfRange(this);
     const { start: oStart, end: oEnd } = valueOfRange(other);
 
@@ -299,19 +324,19 @@ DateRange.prototype.subtract = function subtract(other) {
     }
 
     return [];
-};
+}
 
-DateRange.prototype.toDate = function toDate() {
+function toDate() {
     return [this.start.toDate(), this.end.toDate()];
-};
+}
 
-DateRange.prototype.toString = function toString(format) {
+function toString(format) {
     return this.start.format(format) + '/' + this.end.format(format);
-};
+}
 
-DateRange.prototype.valueOf = function valueOf() {
+function valueOf() {
     return this.end.valueOf() - this.start.valueOf();
-};
+}
 
 
 //-----------------------------------------------------------------------------
@@ -320,8 +345,8 @@ DateRange.prototype.valueOf = function valueOf() {
 
 function extendMoment(moment) {
     /**
-   * Build a date range.
-   */
+    * Build a date range.
+    */
     moment.range = function range(start, end) {
         const m = this;
 
@@ -333,21 +358,23 @@ function extendMoment(moment) {
     };
 
     /**
-   * Alias of static constructor.
-   */
+    * Alias of static constructor.
+    */
     moment.fn.range = moment.range;
 
     /**
-   * Expose constructor
-   */
+    * Expose constructor
+    */
     moment.range.constructor = DateRange;
+
+    moment.isRange = isRange;
 
     moment.fn.invertRanges = invertRanges;
     moment.fn.mergeRanges = mergeRanges;
 
     /**
-   * Check if the current moment is within a given date range.
-   */
+    * Check if the current moment is within a given date range.
+    */
     moment.fn.within = function(range) {
         return range.contains(this.toDate());
     };
