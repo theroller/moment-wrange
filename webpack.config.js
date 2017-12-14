@@ -29,7 +29,7 @@ function getConfig(opts) {
 
     // Defaults
     // -------------------------------------------------------------------------
-    const entry = './src/moment-range.js';
+    const entry = './src/index.js';
     const externals = {
         moment: 'moment'
     };
