@@ -1,4 +1,4 @@
-# moment-range [![CircleCI branch](https://img.shields.io/circleci/project/github/theroller/moment-range/roller.svg)](https://circleci.com/gh/theroller/moment-range)
+# moment-wrange [![CircleCI branch](https://img.shields.io/circleci/project/github/theroller/moment-wrange/roller.svg)](https://circleci.com/gh/theroller/moment-wrange)
 
 Fancy date ranges for [Moment.js][moment].
 
@@ -44,21 +44,21 @@ Fancy date ranges for [Moment.js][moment].
 
 ## Installation
 
-moment-range works in both the browser and [node.js][node].
+moment-wrange works in both the browser and [node.js][node].
 
 ### Node / NPM
 
 Install via npm:
 
 ``` sh
-npm install --save moment-range
+npm install --save moment-wrange
 ```
 
 **ES6:**
 
 ``` js
 import Moment from 'moment';
-import { extendMoment } from 'moment-range';
+import { extendMoment } from 'moment-wrange';
 
 const moment = extendMoment(Moment);
 ```
@@ -67,7 +67,7 @@ const moment = extendMoment(Moment);
 
 ``` js
 const Moment = require('moment');
-const MomentRange = require('moment-range');
+const MomentRange = require('moment-wrange');
 
 const moment = MomentRange.extendMoment(Moment);
 ```
@@ -76,17 +76,12 @@ const moment = MomentRange.extendMoment(Moment);
 
 ``` html
 <script src="moment.js"></script>
-<script src="moment-range.js"></script>
+<script src="moment-wrange.js"></script>
 ```
 
 ``` js
-window['moment-range'].extendMoment(moment);
+window['moment-wrange'].extendMoment(moment);
 ```
-
-Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-range from
-the [cdnjs servers][cdnjs-moment-range].
-
-
 
 ## Examples
 
@@ -561,23 +556,23 @@ range.valueOf(); // 7945200000
 
 ## Running Tests
 
-Clone this bad boy:
+Clone:
 
 ``` sh
-git clone https://git@github.com/theroller/moment-range.git
+git clone https://git@github.com/theroller/moment-wrange.git
 ```
 
 Install the dependencies:
 
 ``` sh
-yarn install
+npm install
 ```
 
 Do all the things!
 
 ``` sh
-yarn run test
-yarn run lint
+npm run test
+npm run lint
 ```
 
 ## Contributors
@@ -603,16 +598,14 @@ yarn run lint
 - [**Victoria French**](https://github.com/victoriafrench)
 - [**Jochen Diekenbrock**](https://github.com/JochenDiekenbrock)
 
-
 ## License
 
-moment-range is [UNLICENSED][unlicense].
+moment-wrange uses the [MIT License][mit].
 
 [add]: http://momentjs.com/docs/#/manipulating/add/
 [cdnjs]: https://github.com/cdnjs/cdnjs
-[cdnjs-moment-range]: https://cdnjs.com/libraries/moment-range
 [interval]: http://en.wikipedia.org/wiki/ISO_8601#Time_intervals
 [iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#Syntaxes_expecting_iterables
+[mit]: https://opensource.org/licenses/MIT
 [moment]: http://momentjs.com/
 [node]: http://nodejs.org/
-[unlicense]: http://unlicense.org/

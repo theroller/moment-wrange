@@ -1,7 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-const MomentRange = require('./moment-range');
+const MomentRange = require('./moment-wrange');
 const {
     INTERVALS,
     MIN_TIME_MILLISECONDS,
@@ -10,9 +10,9 @@ const {
 
 
 // Static Methods
-const invertRanges = require('./moment-range/static/invertRanges');
-const isRange = require('./moment-range/static/isRange');
-const mergeRanges = require('./moment-range/static/mergeRanges');
+const invertRanges = require('./moment-wrange/static/invertRanges');
+const isRange = require('./moment-wrange/static/isRange');
+const mergeRanges = require('./moment-wrange/static/mergeRanges');
 
 module.exports.extendMoment = extendMoment;
 module.exports.MAX_MOMENT = moment(MAX_TIME_MILLISECONDS);

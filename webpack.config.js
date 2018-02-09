@@ -53,8 +53,8 @@ function getConfig(opts) {
         ]
     };
     const output = {
-        filename: 'moment-range.js',
-        library: 'moment-range',
+        filename: 'moment-wrange.js',
+        library: 'moment-wrange',
         libraryTarget: 'umd',
         path: path.join(__dirname, 'dist'),
         umdNamedDefine: true
@@ -80,7 +80,7 @@ function getConfig(opts) {
 
     // Minification
     if (opts.minify) {
-        output.filename = 'moment-range.min.js',
+        output.filename = 'moment-wrange.min.js',
         plugins.push(new UglifyJsPlugin({
             parallel: true,
             sourceMap: true

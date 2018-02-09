@@ -8,7 +8,7 @@ module.exports = mergeRanges;
 /**
  * Generates a new array of ranges in ascending order where any
  * overlapping or adjacent ranges are merged.
- * @param {array} ranges - Array of moment-range objects
+ * @param {array} ranges - Array of moment-wrange objects
  * @returns {array} Potentially reduced array of ranges
  */
 function mergeRanges(ranges) {

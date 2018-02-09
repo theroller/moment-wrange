@@ -22,7 +22,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Install moment-range
+          name: Install moment-wrange
           command: npm install
 
       - save_cache:

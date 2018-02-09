@@ -7,7 +7,7 @@ module.exports = invertRanges;
 
 /**
  * Returns the inverse of defined ranges.
- * @param {array} ranges - Array of moment-range objects
+ * @param {array} ranges - Array of moment-wrange objects
  * @returns {array} Array of ranges across all time not defined by
  *    the input array.
  */
