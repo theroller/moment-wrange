@@ -572,6 +572,7 @@ Do all the things!
 
 ``` sh
 npm run test
+npm run test:browser
 npm run lint
 ```
 
