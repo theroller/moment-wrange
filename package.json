@@ -38,7 +38,7 @@
   "files": [
     "dist/",
     "src/",
-    "UNLICENSE"
+    "LICENSE"
   ],
   "scripts": {
     "build": "webpack",
