@@ -1,7 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-const MomentRange = require('./moment-wrange');
+const MomentWrange = require('./moment-wrange');
 const {
     INTERVALS,
     MIN_TIME_MILLISECONDS,
@@ -24,10 +24,10 @@ function extendMoment(moment) {
         const m = this;
 
         if (INTERVALS.hasOwnProperty(start)) {
-            return new MomentRange(moment(m).startOf(start), moment(m).endOf(start));
+            return new MomentWrange(moment(m).startOf(start), moment(m).endOf(start));
         }
 
-        return new MomentRange(start, end);
+        return new MomentWrange(start, end);
     };
 
     /**
@@ -38,7 +38,7 @@ function extendMoment(moment) {
     /**
     * Expose constructor
     */
-    moment.range.constructor = MomentRange;
+    moment.range.constructor = MomentWrange;
 
     /**
      * Static Methods

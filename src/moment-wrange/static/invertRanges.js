@@ -1,7 +1,7 @@
 'use strict';
 
 const mergeRanges = require('./mergeRanges');
-const MomentRange = require('../index');
+const MomentWrange = require('../index');
 
 module.exports = invertRanges;
 
@@ -18,7 +18,7 @@ function invertRanges(ranges) {
     const inputRanges = mergeRanges(ranges);
 
     // Establish the universe over all time
-    const universe = new MomentRange(null, null);
+    const universe = new MomentWrange(null, null);
 
     // Collect all of the differences between the universe and given ranges
     const diffGroups = [];

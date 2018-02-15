@@ -42,7 +42,7 @@ describe('Moment', function() {
     });
 
     describe('#range()', function() {
-        it('should return a MomentRange with start & end properties', function() {
+        it('should return a MomentWrange with start & end properties', function() {
             const dr = moment.range(m1, m2);
             expect(moment.isMoment(dr.start)).to.be.true;
             expect(moment.isMoment(dr.end)).to.be.true;
@@ -318,7 +318,7 @@ describe('Moment', function() {
     });
 });
 
-describe('MomentRange', function() {
+describe('MomentWrange', function() {
     const d1 = new Date(Date.UTC(2011, 2, 5));
     const d2 = new Date(Date.UTC(2011, 5, 5));
     const d3 = new Date(Date.UTC(2011, 4, 9));
@@ -989,7 +989,7 @@ describe('MomentRange', function() {
             expect(dr.contains(m4)).to.be.false;
         });
 
-        it('should work with MomentRange objects', function() {
+        it('should work with MomentWrange objects', function() {
             const dr1 = moment.range(m1, m4);
             const dr2 = moment.range(m3, m2);
 
@@ -1044,7 +1044,7 @@ describe('MomentRange', function() {
     });
 
     describe('#overlaps()', function() {
-        it('should work with MomentRange objects', function() {
+        it('should work with MomentWrange objects', function() {
             const dr1 = moment.range(m1, m2);
             const dr2 = moment.range(m3, m4);
             const dr3 = moment.range(m2, m4);
@@ -1381,7 +1381,7 @@ describe('MomentRange', function() {
     });
 
     describe('#isSame()', function() {
-        it('should true if the start and end of both MomentRange objects equal', function() {
+        it('should true if the start and end of both MomentWrange objects equal', function() {
             const dr1 = moment.range(d1, d2);
             const dr2 = moment.range(d1, d2);
 

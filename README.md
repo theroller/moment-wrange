@@ -1,6 +1,18 @@
-# moment-wrange [![CircleCI branch](https://img.shields.io/circleci/project/github/theroller/moment-wrange/roller.svg)](https://circleci.com/gh/theroller/moment-wrange)
+# moment-wrange [![CircleCI](https://circleci.com/gh/theroller/moment-wrange.svg?style=svg&circle-token=91592714650b9d0849a5c6f6ec76363803d9c06e)](https://circleci.com/gh/theroller/moment-wrange)
 
-Fancy date ranges for [Moment.js][moment].
+Fancier date ranges for [Moment.js][moment].
+
+## About
+This is a fork of moment-range. We forked because there were major changes that our team needed completed in a very quick manor, and we needed to get off of tracking a git repo and use a full on NPM package.
+
+### Primary Differences
+    * codebase converted from ES6 to ES5
+    * tests default to server-side testing, but browser testing has been maintained
+    * add() allows both adjacent and overlapping inputs
+    * invertRanges() returns inverse of given ranges for all time
+    * isRange() determines whether an object is typeof MomentWrange
+    * mergeRanges() collapses an array of ranges into a minimal set
+    * many little cleanup items included
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -16,12 +28,15 @@ Fancy date ranges for [Moment.js][moment].
     - [Adjacent](#adjacent)
     - [Center](#center)
     - [Contains](#contains)
-    - [Within](#within)
-    - [Overlaps](#overlaps)
     - [Intersect](#intersect)
+    - [IsRange](#isrange)
+    - [Overlaps](#overlaps)
+    - [Within](#within)
   - [Manipulation](#manipulation)
     - [Add](#add)
     - [Clone](#clone)
+    - [Invert](#invert)
+    - [Merge](#merge)
     - [Subtract](#subtract)
   - [Iteration](#iteration)
     - [by](#by)
@@ -66,10 +81,8 @@ const moment = extendMoment(Moment);
 **CommonJS:**
 
 ``` js
-const Moment = require('moment');
-const MomentRange = require('moment-wrange');
-
-const moment = MomentRange.extendMoment(Moment);
+const { extendMoment } = require('moment-wrange');
+const moment = extendMoment(require('moment'));
 ```
 
 ### Browser
@@ -206,17 +219,20 @@ range.contains(end, { exclusive: false }) // true
 range.contains(end, { exclusive: true }) // false
 ```
 
-#### Within
+#### Intersect
 
-Find out if your moment falls within a date range:
+What are the intersecting ranges?
 
 ``` js
-const start = new Date(2012, 4, 1);
-const end   = new Date(2012, 4, 23);
-const when  = moment('2012-05-10', 'YYYY-MM-DD');
-const range = moment.range(start, end);
+range.intersect(range2); // [moment.range(lol, end)]
+```
 
-when.within(range); // true
+#### IsRange
+
+Is this a MomentWrange object?
+
+``` js
+moment.isRange(range2); // true
 ```
 
 #### Overlaps
@@ -243,22 +259,27 @@ range1.overlaps(range2, { adjacent: false }) // false
 range1.overlaps(range2, { adjacent: true })  // true
 ```
 
-#### Intersect
+#### Within
 
-What are the intersecting ranges?
+Find out if your moment falls within a date range:
 
 ``` js
-range.intersect(range2); // [moment.range(lol, end)]
+const start = new Date(2012, 4, 1);
+const end   = new Date(2012, 4, 23);
+const when  = moment('2012-05-10', 'YYYY-MM-DD');
+const range = moment.range(start, end);
+
+when.within(range); // true
 ```
 
 ### Manipulation
 
 #### Add
 
-Add/combine/merge overlapping ranges.
+Add/combine/merge adjacent or overlapping ranges.
 
 ``` js
-range.add(range2); // [moment.range(start, wat)]
+range.add(range2); // [moment.range(start, d)]
 
 const range3 = moment.range(new Date(2012, 3, 1), new Date(2012, 3, 15);
 range.add(range3); // [null]
@@ -279,12 +300,32 @@ dr2.start.add(2, 'days');
 dr2.start.toDate() === dr.start.toDate() // false
 ```
 
+#### Invert
+
+The inverse ranges for all time.
+
+``` js
+moment().invertRanges(range2); // [moment.range(null, c), moment.range(d, null)]
+```
+
+#### Merge
+
+Collapses an array of ranges into the minimal set of non-overlapping and non-adjacent ranges.
+
+``` js
+const r1 = moment.range('2000-01-01', '2000-06-01');
+const r2 = moment.range('2000-02-01', '2000-12-01');
+const r3 = moment.range('2001-01-01', '2001-06-01');
+const r4 = moment.range('2001-06-01', '2001-07-01');
+moment().mergeRanges([r1, r2, r3, r4]); // [moment.range('2000-01-01', '2000-12-01'), moment.range('2001-01-01', '2001-07-01')]
+```
+
 #### Subtract
 
 Subtracting one range from another.
 
 ``` js
-range.subtract(range2); // [moment.range(start, lol)]
+range.subtract(range2); // [moment.range(c, d)]
 ```
 
 ### Iteration

@@ -1,9 +1,9 @@
 'use strict';
 
-const MomentRange = require('../index');
+const MomentWrange = require('../index');
 
 module.exports = isRange;
 
 function isRange(obj) {
-    return obj instanceof MomentRange;
+    return obj instanceof MomentWrange;
 }

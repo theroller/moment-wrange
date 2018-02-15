@@ -7,9 +7,9 @@ const {
 } = require('../constants');
 
 
-module.exports = MomentRange;
+module.exports = MomentWrange;
 
-function MomentRange(start, end) {
+function MomentWrange(start, end) {
     let s = start;
     let e = end;
 
@@ -29,22 +29,22 @@ function MomentRange(start, end) {
         throw new Error('start must preceed end');
 }
 
-MomentRange.prototype.adjacent = require('./lib/adjacent');
-MomentRange.prototype.add = require('./lib/add');
-MomentRange.prototype.by = require('./lib/by');
-MomentRange.prototype.byRange = require('./lib/byRange');
-MomentRange.prototype.center = require('./lib/center');
-MomentRange.prototype.clone = require('./lib/clone');
-MomentRange.prototype.contains = require('./lib/contains');
-MomentRange.prototype.diff = require('./lib/diff');
-MomentRange.prototype.duration = require('./lib/duration');
-MomentRange.prototype.intersect = require('./lib/intersect');
-MomentRange.prototype.isEqual = require('./lib/isEqual');
-MomentRange.prototype.isSame = require('./lib/isSame');
-MomentRange.prototype.overlaps = require('./lib/overlaps');
-MomentRange.prototype.reverseBy = require('./lib/reverseBy');
-MomentRange.prototype.reverseByRange= require('./lib/reverseByRange');
-MomentRange.prototype.subtract = require('./lib/subtract');
-MomentRange.prototype.toDate = require('./lib/toDate');
-MomentRange.prototype.toString = require('./lib/toString');
-MomentRange.prototype.valueOf = require('./lib/valueOf');
+MomentWrange.prototype.adjacent = require('./lib/adjacent');
+MomentWrange.prototype.add = require('./lib/add');
+MomentWrange.prototype.by = require('./lib/by');
+MomentWrange.prototype.byRange = require('./lib/byRange');
+MomentWrange.prototype.center = require('./lib/center');
+MomentWrange.prototype.clone = require('./lib/clone');
+MomentWrange.prototype.contains = require('./lib/contains');
+MomentWrange.prototype.diff = require('./lib/diff');
+MomentWrange.prototype.duration = require('./lib/duration');
+MomentWrange.prototype.intersect = require('./lib/intersect');
+MomentWrange.prototype.isEqual = require('./lib/isEqual');
+MomentWrange.prototype.isSame = require('./lib/isSame');
+MomentWrange.prototype.overlaps = require('./lib/overlaps');
+MomentWrange.prototype.reverseBy = require('./lib/reverseBy');
+MomentWrange.prototype.reverseByRange= require('./lib/reverseByRange');
+MomentWrange.prototype.subtract = require('./lib/subtract');
+MomentWrange.prototype.toDate = require('./lib/toDate');
+MomentWrange.prototype.toString = require('./lib/toString');
+MomentWrange.prototype.valueOf = require('./lib/valueOf');

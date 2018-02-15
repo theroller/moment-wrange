@@ -1,7 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-const MomentRange = require('../index');
+const MomentWrange = require('../index');
 
 module.exports = mergeRanges;
 
@@ -25,7 +25,7 @@ function mergeRanges(ranges) {
             }
             else {
                 if (range.overlaps(chunk, { adjacent: true })) {
-                    chunk = new MomentRange(moment.min(chunk.start, range.start), moment.max(chunk.end, range.end));
+                    chunk = new MomentWrange(moment.min(chunk.start, range.start), moment.max(chunk.end, range.end));
                 }
                 else {
                     chunks.push(chunk);
