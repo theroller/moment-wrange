@@ -31,7 +31,7 @@
   "module": "./dist/moment-wrange",
   "jsnext:main": "./dist/moment-wrange",
   "unpkg": "dist/moment-wrange.min.js",
-  "version": "4.0.0-rc.3",
+  "version": "4.0.0",
   "engines": {
     "node": ">=6.x"
   },
