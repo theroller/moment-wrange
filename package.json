@@ -40,6 +40,16 @@
     "src/",
     "LICENSE"
   ],
+  "keywords": [
+      "date",
+      "datetime",
+      "interval",
+      "moment",
+      "parse",
+      "plugin",
+      "range",
+      "time"
+  ],
   "scripts": {
     "build": "webpack",
     "ci:lint": "eslint src --format junit --output-file junit/eslint.xml",
