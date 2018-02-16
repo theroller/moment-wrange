@@ -1,4 +1,7 @@
-# moment-wrange [![CircleCI](https://circleci.com/gh/theroller/moment-wrange.svg?style=svg&circle-token=91592714650b9d0849a5c6f6ec76363803d9c06e)](https://circleci.com/gh/theroller/moment-wrange)
+# moment-wrange
+
+  [![NPM version][npm-image]][npm-url]
+  [![CircleCI][circleci-image]][circleci-url]
 
 Fancier date ranges for [Moment.js][moment].
 
@@ -646,8 +649,12 @@ moment-wrange uses the [MIT License][mit].
 
 [add]: http://momentjs.com/docs/#/manipulating/add/
 [cdnjs]: https://github.com/cdnjs/cdnjs
+[circleci-image]: https://circleci.com/gh/theroller/moment-wrange.svg?style=shield&circle-token=91592714650b9d0849a5c6f6ec76363803d9c06e
+[circleci-url]: https://circleci.com/gh/theroller/moment-wrange
 [interval]: http://en.wikipedia.org/wiki/ISO_8601#Time_intervals
 [iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#Syntaxes_expecting_iterables
 [mit]: https://opensource.org/licenses/MIT
 [moment]: http://momentjs.com/
 [node]: http://nodejs.org/
+[npm-image]: https://img.shields.io/npm/v/moment-wrange.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/moment-wrange
