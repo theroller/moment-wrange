@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## 4.0.1
+* added npm badge
+* dev dependencies
+    * updated mocha to v5.x
+    * updated karma to v2.x
+
+## 4.0.0
+* renamed to MomentWrange
+* circleci support added
 
 ## 4.0.0-rc.3
 * initial release of fork
