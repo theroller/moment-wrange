@@ -9,13 +9,15 @@ Fancier date ranges for [Moment.js][moment].
 This is a fork of moment-range. We forked because there were major changes that our team needed completed in a very quick manor, and we needed to get off of tracking a git repo and use a full on NPM package.
 
 ### Primary Differences
-    * codebase converted from ES6 to ES5
-    * tests default to server-side testing, but browser testing has been maintained
-    * add() allows both adjacent and overlapping inputs
-    * invertRanges() returns inverse of given ranges for all time
-    * isRange() determines whether an object is typeof MomentWrange
-    * mergeRanges() collapses an array of ranges into a minimal set
-    * many little cleanup items included
+
+  * codebase converted from ES6 to ES5
+  * tests default to server-side testing (browser testing maintained)
+  * Methods Added:
+    * **add()** allows both adjacent and overlapping inputs
+    * **invertRanges()** returns inverse of given ranges for all time
+    * **isRange()** determines whether an object is typeof MomentWrange
+    * **mergeRanges()** collapses an array of ranges into a minimal set
+  * many little cleanup items included
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
