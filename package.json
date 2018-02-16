@@ -31,7 +31,7 @@
   "module": "./dist/moment-wrange",
   "jsnext:main": "./dist/moment-wrange",
   "unpkg": "dist/moment-wrange.min.js",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "engines": {
     "node": ">=6.x"
   },
@@ -41,14 +41,14 @@
     "LICENSE"
   ],
   "keywords": [
-      "date",
-      "datetime",
-      "interval",
-      "moment",
-      "parse",
-      "plugin",
-      "range",
-      "time"
+    "date",
+    "datetime",
+    "interval",
+    "moment",
+    "parse",
+    "plugin",
+    "range",
+    "time"
   ],
   "scripts": {
     "build": "webpack",
