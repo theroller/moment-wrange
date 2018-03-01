@@ -2,6 +2,7 @@
 
   [![NPM version][npm-image]][npm-url]
   [![CircleCI][circleci-image]][circleci-url]
+  [![David][david-image]][npm-url]
 
 Fancier date ranges for [Moment.js][moment].
 
@@ -11,7 +12,11 @@ This is a fork of moment-range. We forked because there were major changes that 
 ### Primary Differences
 
   * codebase converted from ES6 to ES5
+    * broke out functions into individual files
   * tests default to server-side testing (browser testing maintained)
+  * better follows the conventions used by moment.js for function signatures
+    * new functions have dropped the exclusive option for the inclusivity string that moment introduced in version 2.13.0
+    * new functions include access to the units of time for additional granularity
   * Methods Added:
     * **add()** allows both adjacent and overlapping inputs
     * **invertRanges()** returns inverse of given ranges for all time
@@ -653,10 +658,11 @@ moment-wrange uses the [MIT License][mit].
 [cdnjs]: https://github.com/cdnjs/cdnjs
 [circleci-image]: https://circleci.com/gh/theroller/moment-wrange.svg?style=shield&circle-token=91592714650b9d0849a5c6f6ec76363803d9c06e
 [circleci-url]: https://circleci.com/gh/theroller/moment-wrange
+[david-image]: https://img.shields.io/david/theroller/moment-wrange.svg
 [interval]: http://en.wikipedia.org/wiki/ISO_8601#Time_intervals
 [iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#Syntaxes_expecting_iterables
 [mit]: https://opensource.org/licenses/MIT
 [moment]: http://momentjs.com/
 [node]: http://nodejs.org/
-[npm-image]: https://img.shields.io/npm/v/moment-wrange.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/moment-wrange.svg
 [npm-url]: https://www.npmjs.com/package/moment-wrange
