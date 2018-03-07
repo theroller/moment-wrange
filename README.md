@@ -9,7 +9,7 @@ Fancier date ranges for [Moment.js][moment].
 ## About
 This is a fork of moment-range. We forked because there were major changes that our team needed completed in a very quick manor, and we needed to get off of tracking a git repo and use a full on NPM package.
 
-### Primary Differences
+### Primary Differences from moment-range v3.0.3 (forked release)
 
   * codebase converted from ES6 to ES5
     * broke out functions into individual files
