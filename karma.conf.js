@@ -26,7 +26,7 @@ module.exports = function(config) {
         },
 
         files: [
-            { pattern: 'test/*.spec.js', watched: false }
+            { pattern: 'test/**/*.spec.js', watched: false }
         ],
 
         frameworks: ['babel-polyfill', 'mocha', 'chai'],
@@ -56,7 +56,7 @@ module.exports = function(config) {
         ],
 
         preprocessors: {
-            'test/*.spec.js': ['webpack', 'sourcemap']
+            'test/**/*.spec.js': ['webpack', 'sourcemap']
         },
 
         reporters: ['dots'],
