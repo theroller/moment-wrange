@@ -3,6 +3,7 @@
   [![NPM version][npm-image]][npm-url]
   [![CircleCI][circleci-image]][circleci-url]
   [![David][david-image]][npm-url]
+  [![bitHound Overall Score][bithound-image]][bithound-url]
 
 Fancier date ranges for [Moment.js][moment].
 
@@ -655,6 +656,8 @@ npm run lint
 moment-wrange uses the [MIT License][mit].
 
 [add]: http://momentjs.com/docs/#/manipulating/add/
+[bithound-image]: https://www.bithound.io/github/theroller/moment-wrange/badges/score.svg
+[bithound-url]: https://www.bithound.io/github/theroller/moment-wrange
 [cdnjs]: https://github.com/cdnjs/cdnjs
 [circleci-image]: https://circleci.com/gh/theroller/moment-wrange.svg?style=shield&circle-token=91592714650b9d0849a5c6f6ec76363803d9c06e
 [circleci-url]: https://circleci.com/gh/theroller/moment-wrange
